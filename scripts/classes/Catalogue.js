@@ -31,6 +31,7 @@ class Catalogue {
 
     /**
      * Ajoute un produit au panier
+     * Non utilisée
      */
     addCart() {
         const addToCartButtons = document.querySelectorAll('.add-to-cart');
@@ -56,14 +57,12 @@ class Catalogue {
      * Ferme le toast message 
      */
     closeToast(bodySupport){
-        const quitToast = document.getElementsByClassName('btn-close ms-2 mb-1');
-        const quiToastButton = quitToast[0];
-        
-        quiToastButton.addEventListener('click', (event) =>{
+        const toastCloseButtonNode = document.getElementsByClassName('btn-close ms-2 mb-1');
+        const closeToastButton = toastCloseButtonNode[0];
+        closeToastButton.addEventListener('click', (event) =>{
             event.preventDefault();
             bodySupport.classList.remove('modalDisplay');
         });
-    
     }
     
     /**
@@ -95,8 +94,8 @@ class Catalogue {
             receiverSupport.appendChild(divCreated);
             bodySupport.classList.add('modalDisplay');
             this.closeToast(bodySupport);
-
     }
+
     /**
      * Ouvre la modale au click sur "Voir le produit"
      */
@@ -111,8 +110,9 @@ class Catalogue {
             });
         });
     }
-
 }
+
+
     /**
      * Initialise le chargement du catalogue
      */
@@ -124,7 +124,6 @@ class Catalogue {
         catalogue.addCart();
         catalogue.showProduct()
 }
-
 initCatalogue();
 
 

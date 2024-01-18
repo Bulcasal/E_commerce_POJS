@@ -8,9 +8,10 @@ class Galery {
 
     }
 
+    /**
+     * Génère le html de la page d'accueil
+     */
     createHtmlHomePage() {
-        console.log("Creating HTML for Galery with products:", this.products);
-
         const productContainer = document.createElement('div');
         productContainer.classList.add('product-container');
 
@@ -24,13 +25,14 @@ class Galery {
             `;
             productContainer.appendChild(productItem);
         });
-
         document.querySelector('#product_list').appendChild(productContainer);
     }
 
 }
 
-
+/**
+ * Affiche les produits dans la page d'accueil
+ */
 const products = [
     { name: 'Produit 1', unit_price: 10.99, image: 'pictures/deux.jpg', description: 'Description du produit 1' },
     { name: 'Produit 2', unit_price: 19.99, image: 'pictures/quatre.jpg', description: 'Description du produit 2' },
@@ -38,9 +40,7 @@ const products = [
 ];
 
 new Galery(products);
-// products.forEach((products) => {
-//     new Galery(product);
-// });
+
 
 
 

@@ -53,7 +53,6 @@ class Line
         });
     }
 
-
     /**
      * Génère le html des produits dans le panier
      */
@@ -77,24 +76,20 @@ class Line
         document.querySelector('#cart tbody').appendChild(this.tr_cart_product);
     }
     
-
     /**
      * Calcule le total d'une ligne dans le tableau
      */
     #calculTotalProduct()
     {
         //Récupère les valeurs
-        console.log('9calcultotalproduct récupère valeurs');
         this.product.quantity = this.tr_cart_product.querySelector('.quantity input').value;
         this.product.unit_price = parseFloat(this.tr_cart_product.querySelector('.unit_price').dataset.unitPrice);
         this.product.total = this.product.quantity * this.product.unit_price;
-
         //Met à jour la valeur du panier
-        console.log('10calcultotalproduct maj valeurs');
         this.tr_cart_product.querySelector('.total_price').textContent = this.product.total + '€';
         this.tr_cart_product.querySelector('.total_price').dataset.totalPrice = this.product.total;
-        console.log('calcultotalproduct');
     }
+
     /**
      * Modifie le panier à la suppression d'une ligne du tableau
      */
@@ -120,7 +115,6 @@ class Line
             element.addEventListener('change', (e) => {
                 this.#calculTotalProduct();
                 this.#emitChangeEvent();
-                console.log('manageinfluent');
             })
         })
     }
@@ -133,7 +127,6 @@ class Line
             this.tr_cart_product.remove();
             this.#calculTotalRemoveProduct();
             this.#emitChangeEvent();
-            console.log('manageremove');
         })
     }
 

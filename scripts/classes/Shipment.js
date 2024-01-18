@@ -14,6 +14,9 @@ class Shipment {
         this.price = price;
     }
 
+    /**
+     * Génère le html du choix de livraison
+     */
     #createHtmlShipments() {
         this.div_shipment = document.createElement('div');
         this.div_shipment.innerHTML +=
@@ -24,10 +27,11 @@ class Shipment {
         document.querySelector('#ship').appendChild(this.div_shipment);
     }
 
-
+    /**
+     * Ecoute le changement de checkbox
+     */
     getSelectedDeliveryOption() {
         const deliveryOptions = document.querySelectorAll('.delivery-option');
-        // let selectedValue = null;
         deliveryOptions.forEach((option) => {
             if (option.checked) {
                 selectedValue = option.value;
