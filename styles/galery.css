@@ -1,0 +1,9 @@
+.galeryDisplay{
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 15px;;
+}
+
+.galeryDisplay h3{
+    color:#ff5c5c;
+}

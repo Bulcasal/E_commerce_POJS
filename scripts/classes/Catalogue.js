@@ -29,9 +29,9 @@ class Catalogue {
         });
     }
 
-    // /**
-    //  * Ajoute un produit au panier
-    //  */
+    /**
+     * Ajoute un produit au panier
+     */
     addCart() {
         const addToCartButtons = document.querySelectorAll('.add-to-cart');
         addToCartButtons.forEach((button) => {
@@ -39,12 +39,9 @@ class Catalogue {
                 event.preventDefault();
                 let productId = button.dataset.productId;
                 let selectedProduct = this.products.find(product => product.id === parseInt(productId));
-                console.log(productId, 'product id');
                 //Stocke le produit cliqué dans le local storage
                 localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
-                //Mais n'ajoute pas au panier
-                this.addToCart(selectedProduct, 'addcart');
-                console.log(selectedProduct);
+
             });
         });
     }
@@ -60,13 +57,10 @@ class Catalogue {
      */
     closeToast(bodySupport){
         const quitToast = document.getElementsByClassName('btn-close ms-2 mb-1');
-        console.log(quitToast, 'quitoast: Coucou !'); 
         const quiToastButton = quitToast[0];
-        console.log(quiToastButton, 'quitoastbutton: ça va?'); 
         
         quiToastButton.addEventListener('click', (event) =>{
             event.preventDefault();
-            console.log('inside eventlistener au click');
             bodySupport.classList.remove('modalDisplay');
         });
     
@@ -77,10 +71,7 @@ class Catalogue {
      */
     createModalHtml(selectedProduct){
         const bodySupport = document.querySelector('.modal');
-        console.log(bodySupport, 'bodySupport');
         const receiverSupport = document.querySelector('#productModal');
-        console.log(receiverSupport, 'receiversupport');
-            console.log('Dedans');
             const divCreated = document.createElement('div');
             receiverSupport.innerHTML = '';
             divCreated.innerHTML =
@@ -101,70 +92,37 @@ class Catalogue {
                 <button type="button" class="btn btn-info add-to-cart" data-product-id="${selectedProduct.name}" id="quitToast">Revenir à la liste des produits</button>
                 </div>
                 </div>`                   
-            console.log(selectedProduct.name, 'aftercreatehtml');
             receiverSupport.appendChild(divCreated);
-            
-            // const quitToastButton = document.getElementsByClassName('btn-close ms-2 mb-1');
-            // console.log(quitToastButton, 'quitoastbutton'); 
-
-            // receiverSupport.appendChild(divCreated);
-
             bodySupport.classList.add('modalDisplay');
             this.closeToast(bodySupport);
-            // receiverSupport.appendChild(divCreated);
 
     }
     /**
      * Ouvre la modale au click sur "Voir le produit"
      */
-    // showProduct(){
-    //     const showProduct = document.querySelectorAll('.show-product');
-    //     console.log(showProduct, 'showproduct OK');
-    //     showProduct.forEach((button) => {
-    //         button.addEventListener('click', (event) => {
-    //             event.preventDefault();
-    //             console.log('clické');
-    //                 let productId = button.dataset.productId;
-    //                 let selectedProduct = this.products.find(product => product.id === parseInt(productId));
-    //                 console.log(productId, 'product id depuis showProdcut()');
-    //                 console.log(selectedProduct, 'Kikou selectedProduct');
-    //                 this.createModalHtml(selectedProduct);
-    //                 console.log(selectedProduct, 'endshowproduct')
-    //             });
-    //     });
-    // }
-
-
-showProduct() {
-    const showProductButtons = document.querySelectorAll('.show-product');
-    showProductButtons.forEach((button) => {
-        button.addEventListener('click', (event) => {
-            event.preventDefault();
-            let productId = button.dataset.productId;
-            let selectedProduct = this.products.find(product => product.id === parseInt(productId));
-            console.log(productId, 'product id depuis showProdcut()');
-            console.log(selectedProduct, 'Kikou selectedProduct');
-            this.createModalHtml(selectedProduct);
-            console.log(selectedProduct, 'end showproduct')
+    showProduct() {
+        const showProductButtons = document.querySelectorAll('.show-product');
+        showProductButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                let productId = button.dataset.productId;
+                let selectedProduct = this.products.find(product => product.id === parseInt(productId));
+                this.createModalHtml(selectedProduct);
+            });
         });
-    });
-}
+    }
 
 }
-/**
- * Initialise le chargement du catalogue
- */
-async function initCatalogue() {
-    let response = await fetch('/scripts/data/cart.json');
-    let cart = await response.json();
-
-    let catalogue = new Catalogue(cart.products,);
-    catalogue.createHtmlList();
-    // catalogue.createModalHtml();
-    catalogue.addCart();
-    //test
-    catalogue.showProduct()
-    
+    /**
+     * Initialise le chargement du catalogue
+     */
+    async function initCatalogue() {
+        let response = await fetch('/scripts/data/cart.json');
+        let cart = await response.json();
+        let catalogue = new Catalogue(cart.products,);
+        catalogue.createHtmlList();
+        catalogue.addCart();
+        catalogue.showProduct()
 }
 
 initCatalogue();
