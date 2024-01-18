@@ -1,0 +1,161 @@
+h1, h2{
+    text-align: center;
+    margin-top: 20px;
+}
+p{
+    text-align: justify;
+    margin: 20px;
+}
+main{
+    /* position:relative; */
+    text-align: center;
+    margin-bottom: 50px;
+}
+.galery{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+}
+#product_list{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+.product-container{
+    display: flex;
+    text-align: center;
+}
+img{
+    margin:0px 5px 0px 5px;
+}
+footer{
+    background-color: black;
+    color: white;
+    height: 40px;
+    text-align: center;
+}
+
+.mainContainer{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.mainContainer th{
+    margin-right: 10px;
+}
+
+.mainContainer td{
+    margin-right: 10px;;
+}
+
+.mainContainer label{
+    margin: 40px 0px 40px 0px;
+}
+.influent-price-on-change{
+    background-color: #fff9f9;
+    padding: 8px;
+    width: 80px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.remove{
+    background-color: #ff5c5c;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buttonContainer button{
+    margin-bottom: 10px;
+}
+.galeryDisplay{
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 15px;;
+}
+
+.galeryDisplay h3{
+    color:#ff5c5c;
+}
+
+/******Catalogue**/
+h1{
+    margin-bottom: 40px;
+}
+* .productCatalogue{
+    display: grid;
+} 
+
+.grid{
+    display: flex;
+    justify-content: center;
+}
+
+#catalogue tbody {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px; 
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.productCatalogue {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.productCatalogue img {
+    max-width: 100%;
+    height: auto;
+}
+
+.add-to-cart{
+    margin: 5px 5px 5px 5px;
+}
+
+.modalDisplay{
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+
+}
+
+.modalDisplay{
+    width: 30%;
+}
+
+#imgToast{
+    width: 80%;
+}
+
+.closeToast{
+    display: none;
+}
+
+
+@media only screen and (max-width: 1111px){
+    .product-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
