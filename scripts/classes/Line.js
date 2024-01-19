@@ -55,7 +55,9 @@ class Line
     #createHtml() {
         this.tr_cart_product = document.createElement('tr');
         this.tr_cart_product.innerHTML +=
-            `
+            
+        `
+            <td><img src=${this.product.image} id="cartImage"></td>
             <td>${this.product.name}</td>
             <td class="unit_price" data-unit-price="${this.product.unit_price}">
                 <span class="value">${this.product.unit_price}</span> €
@@ -84,7 +86,7 @@ class Line
         //Met à jour la valeur du panier
         this.tr_cart_product.querySelector('.total_price').textContent = this.product.total + '€';
         this.tr_cart_product.querySelector('.total_price').dataset.totalPrice = this.product.total;
-    }
+    } 
 
     /**
      * Modifie le panier à la suppression d'une ligne du tableau

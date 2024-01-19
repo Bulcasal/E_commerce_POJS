@@ -8,7 +8,7 @@ function init(cart, shipmentData)
     new Lines(cart.products);
     new Shipment();
     new Cart(lines);
-    shipment.onChangeCheckbox(lines);
+    
 }
 
 /**

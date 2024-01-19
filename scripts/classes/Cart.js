@@ -1,43 +1,35 @@
 class Cart {
     line;
-    chooseDeliveryOption;
+    shipment;
     total;
     dom_total_prices;
     
-    constructor(){
+    constructor(shipments){
         this.calculTotalLines();
         this.manageDeliveryChange();
         this.manageRemoveProductEvent();
+        this.onChangeCheckbox();
+        this.calculTotalLines();
         this.dom_total_prices;
+
+        // this.shipments = new Shipment(shipments);
+
+
+        // this.shipments.createHtmlDelivery();
+        // this.shipments.onChangeCheckbox((shipmentPrice) => {
+        //     this.calculateTotal(shipmentPrice);
+        //});
+        
     }
 
-    /**
-     * Initialise les options de livraison dans le panier
-     * @param {Array} shipmentOptions
-     */
-    initDeliveryOptions(shipmentOptions) {
-        this.shipments = shipmentOptions;
-    }
-    
-
-        manageDeliveryChange() {
-            const deliveryOptionsContainer = document.querySelector('#deliveryOptions');
-            this.shipments.forEach((shipment) => {
-                const shipmentInstance = new Shipment(shipment);
-                shipmentInstance.render(deliveryOptionsContainer);
-    
-                // Écoute le changement d'option de livraison
-                shipmentInstance.onSelect(() => {
-                    this.calculTotalLines();  // Recalcul du total du panier
-                });
-            });
-        }
     /**
      * Calcule le total du panier
      * @returns total
      */
     #calculTotalCart()
     {
+        console.log('begin calculTotalCart');
+
         total = 0;
         this.dom_total_prices = document.querySelectorAll('.cart_product .total_price')
         this.dom_total_prices.forEach( () => {
@@ -45,29 +37,14 @@ class Cart {
         });
         const selectedShipment = this.shipments.find(shipment => shipment.isSelected());
         if (selectedShipment) {
-            this.total += selectedShipment.getPrice();
-        document.querySelector('#cart .total_cart').textContent = total + "€";
+            this.total += parseFloat(selectedShipment.unit_price);
+            console.log(parseFloat(selectedShipment.unit_price),'kebab');
+            document.querySelector('#cart .total_cart').textContent = this.total + "€";
+                this.shipments = new Shipment(shipments);
+                console.log('end calculTotalCart');
 
         return total;
     }
 }
-    
-    /**
-     * Met à jour le total du panier après avoir supprimé un produit
-     */
-    updateTotalAfterRemove() {
-        this.calculTotalLines();
-        calculTotalCart();
-        document.querySelector('#cart .total_cart').textContent = this.total + "€";
-    }
-
-    /**
-     * Gère le changement d'option de livraison
-     */
-        // manageDeliveryChange() {
-        //     const shipmentInstance = new Shipment(this.shipments);
-        //     shipmentInstance.createHtmlDelivery();
-        //     shipmentInstance.onChangeCheckbox(this);
-        // }
 
 }

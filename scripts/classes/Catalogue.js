@@ -21,7 +21,7 @@ class Catalogue {
                 <td><img  src="${product.image}" alt="${product.name}"></td>
                 <td class="buttonContainer">
                     <button type="button" class="btn btn-outline-primary show-product" data-product-id="${product.id}">Voir le produit</button>
-                    <button type="button" class="btn btn-success add-to-cart" data-product-id="${product.id}">Ajouter au panier</button>
+                    <button type="button" class="btn btn-outline-success add-to-cart" data-product-id="${product.id}">Ajouter au panier</button>
                 </td>
             `;
             tbody.appendChild(tr);
