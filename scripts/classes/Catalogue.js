@@ -87,9 +87,7 @@ class Catalogue {
                 <div class="toast-body">
                 <img src="${selectedProduct.image}" alt="${selectedProduct.name}" id="imgToast">
                 <p>Description <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos vero perspiciatis, debitis id officia fugiat. </p>
-                <div class="buttonContainer">
-                <button type="button" class="btn btn-info add-to-cart" data-product-id="${selectedProduct.name}" id="quitToast">Revenir à la liste des produits</button>
-                </div>
+
                 </div>`                   
             receiverSupport.appendChild(divCreated);
             bodySupport.classList.add('modalDisplay');

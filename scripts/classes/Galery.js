@@ -34,9 +34,9 @@ class Galery {
  * Affiche les produits dans la page d'accueil
  */
 const products = [
-    { name: 'Produit 1', unit_price: 10.99, image: 'pictures/deux.jpg', description: 'Description du produit 1' },
-    { name: 'Produit 2', unit_price: 19.99, image: 'pictures/quatre.jpg', description: 'Description du produit 2' },
-    { name: 'Produit 3', unit_price: 19.99, image: 'pictures/trois.jpg', description: 'Description du produit 2' },
+    { name: 'Sagesse Sodalite', unit_price: 10.99, image: 'pictures/deux.jpg', description: 'Description du produit 1' },
+    { name: 'Lumière Astrale Lapis Lazuli', unit_price: 19.99, image: 'pictures/quatre.jpg', description: 'Description du produit 2' },
+    { name: 'Bracelet Élégance Turquoise', unit_price: 19.99, image: 'pictures/trois.jpg', description: 'Description du produit 2' },
 ];
 
 new Galery(products);

@@ -12,10 +12,6 @@ class Line
         this.#manageInfluentPriceOnChangeEvents();
         this.#manageRemoveProductEvent();
         this.event = new CustomEvent('change');
-        // let storedProductId = localStorage.getItem("productId");
-        // if (storedProductId) {
-        //     this.product.id = parseInt(storedProductId);
-        // }
     }
 
     /**

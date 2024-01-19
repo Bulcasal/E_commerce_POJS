@@ -13,8 +13,10 @@ class Shipment {
         const deliveries = document.getElementById('deliveryOptions');
         this.shipments.forEach((shipment) => {
         const containerCreated = document.createElement('div');
+        containerCreated.setAttribute('id', 'delivery');
         containerCreated.innerHTML = 
-            `<label for="delivery-${shipment.id}">${shipment.name} (${shipment.unit_price} €)</label>
+            `
+            <label for="delivery-${shipment.id}">${shipment.name} (${shipment.unit_price} €)</label>
             <input class="delivery-option" name="delivery" id="delivery-${shipment.id}" value="${shipment.unit_price}" type="radio"/>
             `;
             deliveries.appendChild(containerCreated);
@@ -28,10 +30,11 @@ class Shipment {
         const checkboxes = document.querySelectorAll('.delivery-option');
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener('change', (event) => {
-                const shipmentId = event.target.id.split('-')[1]; // Extrait 
+                const shipmentId = event.target.id.split('-')[1];
                 const selectedShipment = this.shipments.find(shipment => shipment.id.toString() === shipmentId);
                 if (selectedShipment) {
                     console.log(selectedShipment.unit_price);
+                    
                     calculTotalLines();
                 }
             });

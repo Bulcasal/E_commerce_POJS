@@ -13,15 +13,13 @@ class Cart {
 
     /**
      * Initialise les options de livraison dans le panier
-     * @param {Array} shipmentOptions - Liste des options de livraison
+     * @param {Array} shipmentOptions
      */
     initDeliveryOptions(shipmentOptions) {
         this.shipments = shipmentOptions;
     }
     
-    /**
-     * Gère le changement d'option de livraison
-     */
+
         manageDeliveryChange() {
             const deliveryOptionsContainer = document.querySelector('#deliveryOptions');
             this.shipments.forEach((shipment) => {
@@ -45,8 +43,6 @@ class Cart {
         this.dom_total_prices.forEach( () => {
         this.dom_total_prices.dataset.totalPrice;
         });
-        // total = document.querySelector('.delivery-option:checked');
-        // Ajoutez le coût de la livraison au total
         const selectedShipment = this.shipments.find(shipment => shipment.isSelected());
         if (selectedShipment) {
             this.total += selectedShipment.getPrice();
@@ -65,5 +61,13 @@ class Cart {
         document.querySelector('#cart .total_cart').textContent = this.total + "€";
     }
 
+    /**
+     * Gère le changement d'option de livraison
+     */
+        // manageDeliveryChange() {
+        //     const shipmentInstance = new Shipment(this.shipments);
+        //     shipmentInstance.createHtmlDelivery();
+        //     shipmentInstance.onChangeCheckbox(this);
+        // }
 
 }

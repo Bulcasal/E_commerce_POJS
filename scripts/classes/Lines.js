@@ -54,12 +54,4 @@ class Lines{
         this.calculTotalLines();
     }
 
-    // addToCart(product) {
-    //     let new_line = new Line(product, this);
-    //     new_line.tr_cart_product.addEventListener('change', () => {
-    //         this.calculTotalLines();
-    //     });
-    //     this.lines.push(new_line);
-    // }
-
 }

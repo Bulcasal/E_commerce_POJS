@@ -23,15 +23,23 @@ main{
 .product-container{
     display: flex;
     text-align: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
 }
 img{
     margin:0px 5px 0px 5px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 footer{
     background-color: black;
     color: white;
     height: 40px;
     text-align: center;
+    line-height: 40px;
 }
 
 @media only screen and (max-width: 1111px){

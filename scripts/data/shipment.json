@@ -1,7 +1,7 @@
 {
     "shipments" : [
-      { "id":  1, "name": "Relais colis", "unit_price": 5},
-      { "id":  2, "name": "Domicile", "unit_price": 12}
+      { "id":  1, "name": "Livré en relais colis", "unit_price": 5},
+      { "id":  2, "name": "Livré à domicile", "unit_price": 12}
     ]
 }
   
