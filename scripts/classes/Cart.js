@@ -12,6 +12,29 @@ class Cart {
     }
 
     /**
+     * Initialise les options de livraison dans le panier
+     * @param {Array} shipmentOptions - Liste des options de livraison
+     */
+    initDeliveryOptions(shipmentOptions) {
+        this.shipments = shipmentOptions;
+    }
+    
+    /**
+     * Gère le changement d'option de livraison
+     */
+        manageDeliveryChange() {
+            const deliveryOptionsContainer = document.querySelector('#deliveryOptions');
+            this.shipments.forEach((shipment) => {
+                const shipmentInstance = new Shipment(shipment);
+                shipmentInstance.render(deliveryOptionsContainer);
+    
+                // Écoute le changement d'option de livraison
+                shipmentInstance.onSelect(() => {
+                    this.calculTotalLines();  // Recalcul du total du panier
+                });
+            });
+        }
+    /**
      * Calcule le total du panier
      * @returns total
      */
@@ -23,10 +46,15 @@ class Cart {
         this.dom_total_prices.dataset.totalPrice;
         });
         // total = document.querySelector('.delivery-option:checked');
+        // Ajoutez le coût de la livraison au total
+        const selectedShipment = this.shipments.find(shipment => shipment.isSelected());
+        if (selectedShipment) {
+            this.total += selectedShipment.getPrice();
         document.querySelector('#cart .total_cart').textContent = total + "€";
 
         return total;
     }
+}
     
     /**
      * Met à jour le total du panier après avoir supprimé un produit
@@ -37,17 +65,5 @@ class Cart {
         document.querySelector('#cart .total_cart').textContent = this.total + "€";
     }
 
-    /**
-     * Gère le changement d'option de livraison
-     */
-    manageDeliveryChange() {
-        const deliveryOptions = document.querySelectorAll('.delivery-option');
-        deliveryOptions.forEach((option) => {
-            option.addEventListener('change', () => {
-                this.calculTotalLines();
-                document.querySelector('#cart .total_cart').textContent = this.total + "€";
-            });
-        });
-    }
 
-}   
+}

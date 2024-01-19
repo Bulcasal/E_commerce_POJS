@@ -1,42 +1,53 @@
 class Shipment {
-    #chooseDeliveryOption;
-    #price;
-    delivery_option;
-    event;
-    shipment;
-    div_shipment;
-    shipments = [];
+    #event;
 
-    constructor(shipment) {
-        this.shipment = shipment;
-        this.#createHtmlShipments();
-        this.chooseDeliveryOption = chooseDeliveryOption;
-        this.price = price;
+    constructor(shipments) {
+        this.shipments = shipments;
+        this.#event = new CustomEvent('change');
     }
 
     /**
-     * Génère le html du choix de livraison
+     * Génère les choix de livraison dans le panier
      */
-    #createHtmlShipments() {
-        this.div_shipment = document.createElement('div');
-        this.div_shipment.innerHTML +=
-            `
-                <label>${this.shipment.name}</label>
-                <input class="delivery-option" name="delivery" id="delivery-${this.shipment.id}" value="${this.shipment.unit_price}" type="radio" checked>
+    createHtmlDelivery() {
+        const deliveries = document.getElementById('deliveryOptions');
+        this.shipments.forEach((shipment) => {
+        const containerCreated = document.createElement('div');
+        containerCreated.innerHTML = 
+            `<label for="delivery-${shipment.id}">${shipment.name} (${shipment.unit_price} €)</label>
+            <input class="delivery-option" name="delivery" id="delivery-${shipment.id}" value="${shipment.unit_price}" type="radio"/>
             `;
-        document.querySelector('#ship').appendChild(this.div_shipment);
+            deliveries.appendChild(containerCreated);
+        });
     }
 
     /**
-     * Ecoute le changement de checkbox
+     * Ecoute le changement du choix de livraison
      */
-    getSelectedDeliveryOption() {
-        const deliveryOptions = document.querySelectorAll('.delivery-option');
-        deliveryOptions.forEach((option) => {
-            if (option.checked) {
-                selectedValue = option.value;
-                console.log(selectedValue);
-            }
+    onChangeCheckbox(){
+        const checkboxes = document.querySelectorAll('.delivery-option');
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', (event) => {
+                const shipmentId = event.target.id.split('-')[1]; // Extrait 
+                const selectedShipment = this.shipments.find(shipment => shipment.id.toString() === shipmentId);
+                if (selectedShipment) {
+                    console.log(selectedShipment.unit_price);
+                    calculTotalLines();
+                }
+            });
         });
     }
 }
+
+/**
+ * Récupère les données du json
+ */
+async function getShipment()
+{
+    let response = await fetch('/scripts/data/shipment.json');
+    let delivery = await response.json();
+    let shipment = new Shipment(delivery.shipments);
+    shipment.createHtmlDelivery();
+    shipment.onChangeCheckbox();
+}
+getShipment();

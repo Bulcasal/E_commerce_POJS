@@ -2,13 +2,13 @@
  * Initialise le panier
  * @param {} cart 
  */
-function init(cart, shipment)
+function init(cart, shipmentData)
 {
-    console.log('initcart')
+    console.log('initcart');
     new Lines(cart.products);
     new Shipment();
-    manageDeliveryChange();
-    getSelectedDeliveryOption();
+    new Cart(lines);
+    shipment.onChangeCheckbox(lines);
 }
 
 /**
@@ -48,3 +48,10 @@ async function getCart()
 }
 getCart();
 
+async function getShipment()
+{
+    let response = await fetch('/scripts/data/shipment.json');
+    let shipment = await response.json();
+    init(cart, shipment);
+}
+getShipment();

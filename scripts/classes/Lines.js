@@ -24,13 +24,23 @@ class Lines{
         });
 
         // 2 - Prise en compte du choix de livraison
-        this.total += parseFloat(document.querySelector('.delivery-option:checked').value);
+        this.total += parseFloat(this.getSelectedDeliveryOption());
         document.querySelector('#cart .total_cart').textContent = this.total + "€";
         this.getSelectedDeliveryOption();
     }
 
     /**
-     * Ajoute une ligne au panier (quantité par produit)
+     * Récupère le choix de livraison
+     * @returns 
+     */
+    getSelectedDeliveryOption() {
+        const selectedDeliveryOption = document.querySelector('.delivery-option:checked');
+        //Condition ternaire
+        return selectedDeliveryOption ? parseFloat(selectedDeliveryOption.value) : 0;
+    }
+
+    /**
+     * Ajoute une ligne au panier lorsque l'on modifie la quantité
      */
     #run(){
         this.products.forEach((product) => {
@@ -43,12 +53,13 @@ class Lines{
         })
         this.calculTotalLines();
     }
-    addToCart(product) {
-        let new_line = new Line(product, this);
-        new_line.tr_cart_product.addEventListener('change', () => {
-            this.calculTotalLines();
-        });
-        this.lines.push(new_line);
-    }
+
+    // addToCart(product) {
+    //     let new_line = new Line(product, this);
+    //     new_line.tr_cart_product.addEventListener('change', () => {
+    //         this.calculTotalLines();
+    //     });
+    //     this.lines.push(new_line);
+    // }
 
 }

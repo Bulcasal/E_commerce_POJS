@@ -10,6 +10,7 @@
         <script src="./scripts/main.js" defer></script>
         <script src="./scripts/classes/Lines.js" defer></script>
         <script src="./scripts/classes/Cart.js" defer></script>
+        <script src="./scripts/classes/Shipment.js" defer></script>
         
         <title>Panier</title>
     </head>
@@ -50,8 +51,10 @@
             <tbody>
             </tbody>
             <tfoot>
-                  <div id="deliveryOptions">
-                    <td colspan="2">
+              <tr id="deliveryOptions">
+                <!-- Les options de livraison seront ajoutées ici par JavaScript -->
+            </tr>
+                   <!--<td colspan="2">
                         <label for="delivery-1">Relais colis (5 €)</label>
                         <input class="delivery-option" name="delivery" id="delivery-1" value="5" type="radio"/>
                     </td>
@@ -60,7 +63,7 @@
                         <input class="delivery-option" name="delivery" id="delivery-2" value="12" type="radio"/>
                     </td>
                   </div>
-                </tr>
+                </tr>-->
                 <tr id="totalContainer">
                     <td colspan="2">Total: </td>
                     <td colspan="2" class="total_cart"></td>

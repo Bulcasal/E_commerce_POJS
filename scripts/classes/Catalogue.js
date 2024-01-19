@@ -119,7 +119,7 @@ class Catalogue {
     async function initCatalogue() {
         let response = await fetch('/scripts/data/cart.json');
         let cart = await response.json();
-        let catalogue = new Catalogue(cart.products,);
+        let catalogue = new Catalogue(cart.products);
         catalogue.createHtmlList();
         catalogue.addCart();
         catalogue.showProduct()
