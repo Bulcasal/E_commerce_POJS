@@ -14,12 +14,12 @@ body {
 #cart th{
     padding: 20px;
 }
-
+/* 
 #deliveryOptions{
     display: flex;
     justify-content: space-between;
     
-}
+} */
 
 .mainContainer td{
     margin-right: 10px;
@@ -65,3 +65,20 @@ body {
     height: auto;
 }
 
+#deliveryOptions {
+    display: flex;
+    margin-left: 400px;
+  }
+  
+  
+  #deliveryOptions input {
+    margin-top: 5px;
+  }
+  
+  .total_cart {
+    font-weight: bold;
+  }
+
+  #delivery{
+    margin-right: 50px;
+  }

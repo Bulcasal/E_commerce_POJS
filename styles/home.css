@@ -1,4 +1,5 @@
 h1, h2{
+    font-family: 'Spinnaker';
     text-align: center;
     margin-top: 20px;
 }
@@ -6,7 +7,12 @@ p{
     text-align: justify;
     margin: 20px;
 }
+a{
+    font-size: 2rem;
+    font-family: 'Dancing Script';
+}
 main{
+
     text-align: center;
     margin-bottom: 50px;
 }
@@ -41,6 +47,7 @@ footer{
     text-align: center;
     line-height: 40px;
 }
+
 
 @media only screen and (max-width: 1111px){
     .product-container{

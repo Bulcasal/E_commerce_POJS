@@ -31,7 +31,6 @@ class Lines{
         this.total += parseFloat(this.getSelectedDeliveryOption());
         console.log(this.total, 'choice');
         document.querySelector('#cart .total_cart').textContent = this.total + "€";
-        
         console.log('end calculTotalLines()p2');
 
     }

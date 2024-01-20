@@ -20,8 +20,10 @@ class Shipment {
         containerCreated.setAttribute('id', 'delivery');
         containerCreated.innerHTML = 
             `
+            <td colspan="2">
             <label for="delivery-${shipment.id}">${shipment.name} (${shipment.unit_price} €)</label>
             <input class="delivery-option" name="delivery" id="delivery-${shipment.id}" value="${shipment.unit_price}" type="radio" checked/>
+            </td>
             `;
             deliveries.appendChild(containerCreated);
             console.log('end createHtmlDelivery');
@@ -43,6 +45,8 @@ class Shipment {
                     this.total += parseFloat(selectedShipment.unit_price);
                     console.log(this.total, 'thistotal');
                     console.log(parseFloat(selectedShipment.unit_price),'kebab');
+
+                    // document.querySelector('#cart .total_cart').textContent = this.total + "€";
                 }
             });
         });
