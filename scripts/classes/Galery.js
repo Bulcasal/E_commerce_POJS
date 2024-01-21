@@ -31,7 +31,7 @@ class Galery {
 }
 
 /**
- * Affiche les produits dans la page d'accueil
+ * Affiche les produits sur la page d'accueil
  */
 const products = [
     { name: 'Sagesse Sodalite', unit_price: 10.99, image: 'pictures/deux.jpg', description: 'Description du produit 1' },

@@ -1,5 +1,5 @@
-h1, h2{
-    font-family: 'Spinnaker';
+h1{
+    font-family: 'Dancing Script';
     text-align: center;
     margin-top: 20px;
 }
@@ -7,7 +7,7 @@ p{
     text-align: justify;
     margin: 20px;
 }
-a{
+#linkCatalogue{
     font-size: 2rem;
     font-family: 'Dancing Script';
 }

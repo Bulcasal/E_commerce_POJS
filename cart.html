@@ -8,13 +8,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/flatly/bootstrap.min.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Spinnaker&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spinnaker&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/home.css" />
-    <link rel="stylesheet" href="styles/test.css" />
+    <link rel="stylesheet" href="styles/cart.css" />
     <script src="./scripts/main.js" defer></script>
     <script src="./scripts/classes/Lines.js" defer></script>
     <script src="./scripts/classes/Cart.js" defer></script>
@@ -48,13 +49,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="cart.html">Panier</a>
               </li>
-              
             </ul>
           </div>
         </div>
       </nav>
-
-      
     </header>
     <main>
       <div class="mainContainer">
@@ -66,13 +64,13 @@
               <th>Nom</th>
               <th>Prix</th>
               <th>Quantité</th>
-              <th>Total HT</th>
+              <th>Total</th>
               <th></th>
             </tr>
           </thead>
           <tbody></tbody>
           <tfoot>
-            <tr id="deliveryOptions">
+            <tr id="deliveryOptions"></tr>
             <tr id="totalContainer">
               <td colspan="2">Total:</td>
               <td colspan="2" class="total_cart"></td>
@@ -85,6 +83,8 @@
           Valider le panier
         </button>
       </div>
+
+      
     </main>
     <footer>Mentions légales</footer>
   </body>
