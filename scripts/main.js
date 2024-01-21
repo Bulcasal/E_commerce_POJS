@@ -2,15 +2,15 @@
  * Initialise le panier
  * @param {} cart 
  */
-function init(cart, shipment)
+function init(cart)
 {
-    console.log('initcart')
+    console.log('initcart');
     new Lines(cart.products);
     new Shipment();
-    manageDeliveryChange();
-    getSelectedDeliveryOption();
+    new Cart(lines);
+    
 }
-
+let lines;
 /**
  * Initialise l'affichage du catalogue
  * @param {*} cart 
@@ -40,11 +40,16 @@ function initNouveautes(cart)
  */
 async function getCart()
 {
-    let response = await fetch('/scripts/data/cart.json');
-    let cart = await response.json();
-    init(cart);
-    initCatalogue(cart);
-    initNouveautes(cart);
+    try {
+        let response = await fetch('/scripts/data/cart.json');
+        let cart = await response.json();
+        let lines = new Lines(cart.products);
+        init(cart, lines, shipment);
+        initCatalogue(cart, lines);
+        initNouveautes(cart);
+    } catch (error) {
+        console.error(error, 'Error fetching data');
+    }
 }
 getCart();
 

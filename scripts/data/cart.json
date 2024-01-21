@@ -1,16 +1,16 @@
 {
-    "products" : [
-      { "id":  1, "name": "Produit A", "unit_price": 10, "quantity":  2, "image": "/pictures/deux.jpg" },
-      { "id":  2, "name": "Produit B", "unit_price": 20, "quantity":  3, "image": "./pictures/un.jpg" },
-      { "id":  3, "name": "Produit C", "unit_price": 30, "quantity":  4, "image": "/pictures/trois.jpg"},
-      { "id":  4, "name": "Produit D", "unit_price": 40, "quantity":  5, "image": "/pictures/quatre.jpg"},
-      { "id":  5, "name": "Produit E", "unit_price": 50, "quantity":  1, "image": "/pictures/cinq.jpg"},
-      { "id":  6, "name": "Produit F", "unit_price": 10, "quantity":  2, "image": "/pictures/six.jpg"},
-      { "id":  7, "name": "Produit G", "unit_price": 20, "quantity":  3, "image": "/pictures/sept.jpg"},
-      { "id":  8, "name": "Produit H", "unit_price": 30, "quantity":  4, "image": "/pictures/huit.jpg"},
-      { "id":  9, "name": "Produit I", "unit_price": 40, "quantity":  5, "image": "/pictures/neuf.jpg"},
-      { "id":  10, "name": "Produit J", "unit_price": 50, "quantity":  1, "image": "/pictures/dix.jpg"},
-      { "id":  11, "name": "Produit K", "unit_price": 40, "quantity":  5, "image": "/pictures/onze.jpg"},
-      { "id":  12, "name": "Produit L", "unit_price": 50, "quantity":  1, "image": "/pictures/douze.jpg"}
-    ]
+  "products": [
+      { "id": 1, "name": "Éclat d'Énérgie Améthyste", "unit_price": 10, "quantity": 2, "image": "/pictures/deux.jpg" },
+      { "id": 2, "name": "Bracelet Élégance Turquoise", "unit_price": 20, "quantity": 3, "image": "./pictures/un.jpg" },
+      { "id": 3, "name": "Harmonie Quartz Rose", "unit_price": 30, "quantity": 4, "image": "/pictures/trois.jpg" },
+      { "id": 4, "name": "Bracelet Obsidienne Protectrice", "unit_price": 40, "quantity": 5, "image": "/pictures/quatre.jpg" },
+      { "id": 5, "name": "Sérénité Aventurine", "unit_price": 50, "quantity": 1, "image": "/pictures/cinq.jpg" },
+      { "id": 6, "name": "Énergie Équilibrée Hématite", "unit_price": 10, "quantity": 2, "image": "/pictures/six.jpg" },
+      { "id": 7, "name": "Bracelet Jade de Pureté", "unit_price": 20, "quantity": 3, "image": "/pictures/sept.jpg" },
+      { "id": 8, "name": "Éclat Solaire Citrine", "unit_price": 30, "quantity": 4, "image": "/pictures/huit.jpg" },
+      { "id": 9, "name": "Bracelet Rhodonite Passion", "unit_price": 40, "quantity": 5, "image": "/pictures/neuf.jpg" },
+      { "id": 10, "name": "Lumière Astrale Lapis Lazuli", "unit_price": 50, "quantity": 1, "image": "/pictures/dix.jpg" },
+      { "id": 11, "name": "Mystère Labradorite", "unit_price": 40, "quantity": 5, "image": "/pictures/onze.jpg" },
+      { "id": 12, "name": "Sagesse Sodalite", "unit_price": 50, "quantity": 1, "image": "/pictures/douze.jpg" }
+  ]
 }
